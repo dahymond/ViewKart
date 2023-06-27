@@ -129,4 +129,3 @@ def remove_cart_item(request, product_id):
     cart_items = CartItem.objects.get(product=product, cart=cart)
     cart_items.delete()
     return redirect('cart')
-
