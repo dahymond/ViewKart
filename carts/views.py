@@ -28,7 +28,7 @@ def add_cart(request, product_id):
 
     
     try:
-        cart = Cart.objects.get(cart_id=_cart_id(request)) # get cart using the crt_id present in the session
+        cart = Cart.objects.get(cart_id=_cart_id(request)) # get cart using the _cart_id present in the session
     except Cart.DoesNotExist:
         cart = Cart.objects.create(
             cart_id = _cart_id(request)
@@ -123,9 +123,9 @@ def remove_cart(request, product_id, cart_item_id):
         pass
     return redirect('cart')
 
-def remove_cart_item(request, product_id):
+def remove_cart_item(request, product_id, cart_item_id):
     product = get_object_or_404(Product, id=product_id)
     cart = Cart.objects.get(cart_id=_cart_id(request))
-    cart_items = CartItem.objects.get(product=product, cart=cart)
+    cart_items = CartItem.objects.get(product=product, cart=cart, id=cart_item_id)
     cart_items.delete()
     return redirect('cart')
