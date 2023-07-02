@@ -10,7 +10,7 @@
       <article class="card-body">
 		<header class="mb-4"><h4 class="card-title">Sign up</h4></header>
 		{{ form.email.errors }}
-		{{ form.non_field_errors}}
+		<!--{{ form.non_field_errors}} -->
 		<form action="{%url 'register' %}" method="POST"> 
 			    {% csrf_token %}
 			    
