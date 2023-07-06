@@ -45,7 +45,7 @@ def login(request):
 
     return render(request, 'accounts/login.html')
 
-#@login_required(login_url = 'login')
+@login_required(login_url = 'login')
 def logout(request):
     auth.logout(request)
     messages.success(request, 'You are  logged out')
