@@ -43,7 +43,7 @@ def login(request):
             messages.error(request, 'invalid login credentials')
             return redirect('login')
 
-    return render(request, 'accounts/login.html')
+   # return render(request, 'accounts/login.html')
 
 @login_required(login_url = 'login')
 def logout(request):
