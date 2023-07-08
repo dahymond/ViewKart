@@ -31,7 +31,7 @@ def register(request):
 
 def login(request):
     if request.method == "POST":
-        email = request.POST['email']
+        #email = request.POST['email']
         password = request.POST['password']
 
         user = auth.authenticate(email=email, password=password)
@@ -43,7 +43,7 @@ def login(request):
             messages.error(request, 'invalid login credentials')
             return redirect('login')
 
-   # return render(request, 'accounts/login.html')
+    return render(request, 'accounts/login.html')
 
 @login_required(login_url = 'login')
 def logout(request):
