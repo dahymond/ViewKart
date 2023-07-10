@@ -5,7 +5,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def register(request):
+#def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -37,7 +37,7 @@ def login(request):
         user = auth.authenticate(email=email, password=password)
         if user is not None:
             auth.login(request, user)
-            #messages.success(request, 'You are now logged in')
+            messages.success(request, 'You are now logged in')
             return redirect('home')
         else:
             messages.error(request, 'invalid login credentials')
