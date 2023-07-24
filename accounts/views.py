@@ -16,11 +16,11 @@ def register(request):
             password = form.cleaned_data['password']
             username = email.split("@")[0]
 
-            # user = Account.objects.create_user(email=email, password=password, first_name=first_name, last_name=last_name, username=username)
-            # user.phone_number = phone_number
-            # user.save()
-            # messages.success(request, 'Registration Successful.')
-            # return redirect('register')
+            user = Account.objects.create_user(email=email, password=password, first_name=first_name, last_name=last_name, username=username)
+            user.phone_number = phone_number
+            user.save()
+            messages.success(request, 'Registration Successful.')
+            return redirect('register')
     else:
         form = RegistrationForm()
     context = {
